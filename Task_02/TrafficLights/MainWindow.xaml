@@ -1,0 +1,96 @@
+﻿<Window x:Class="TrafficLights.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:local="clr-namespace:TrafficLights"
+        xmlns:v="clr-namespace:TrafficLights.Views"
+        xmlns:vm="clr-namespace:TrafficLights.lib.ViewModels;assembly=TrafficLights.lib"
+        DataContext="{Binding Path=MainWindowModel, Source={StaticResource ResourceKey=Locator}}"
+        Title="{Binding Title}" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:TrafficLightsViewModel}">
+            <v:TrafficLightsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PedestrianTrafficLightsViewModel}">
+            <v:PedestrianTrafficLightsView />
+        </DataTemplate>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="Q" Command="{Binding CloseWindowCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="R" Command="{Binding SwitchToInhibitingPhaseCommand}" CommandParameter="{Binding SelectedTrafficLights}"/>
+        <KeyBinding Modifiers="Ctrl" Key="G" Command="{Binding SwitchToPermissivePhaseCommand}" CommandParameter="{Binding SelectedTrafficLights}"/>
+    </Window.InputBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem InputGestureText="Ctrl+Q" Header="Выход" Command="{Binding CloseWindowCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Сервис">
+                <MenuItem Header="Зелёный" InputGestureText="Ctrl+G" Command="{Binding SwitchToPermissivePhaseCommand}" CommandParameter="{Binding SelectedTrafficLights}"/>
+                <MenuItem Header="Красный" InputGestureText="Ctrl+R" Command="{Binding SwitchToInhibitingPhaseCommand}" CommandParameter="{Binding SelectedTrafficLights}"/>
+                <Separator/>
+                <MenuItem Header="Автоматический режим" Command="{Binding AutomaticCommand}" CommandParameter="{Binding SelectedTrafficLights}"/>
+                <MenuItem Header="Ручной режим" Command="{Binding EnabledCommand}" CommandParameter="{Binding SelectedTrafficLights}"/>
+                <MenuItem Header="Выключить" Command="{Binding DisabledCommand}" CommandParameter="{Binding SelectedTrafficLights}"/>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе"/>
+            </MenuItem>
+        </Menu>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar Header="Светофоры">
+                <ComboBox Name="TrafficLightsList" 
+                          MinWidth="160" 
+                          MaxWidth="200" 
+                          SelectedIndex="0" 
+                          SelectedItem="{Binding SelectedTrafficLights}"
+                          ItemsSource="{Binding TrafficLights}"/>
+            </ToolBar>
+            <ToolBar Header="Сигнал" Band="1">
+                <Button Command="{Binding SwitchToPermissivePhaseCommand}" CommandParameter="{Binding SelectedTrafficLights}">
+                    <fa:ImageAwesome Icon="Solid_Circle" Height="14" Width="14" Foreground="Green"/>
+                    <Button.ToolTip>
+                        <ToolTip Content="Зелёный"/>
+                    </Button.ToolTip> 
+                </Button>
+                <Button Command="{Binding SwitchToInhibitingPhaseCommand}" CommandParameter="{Binding SelectedTrafficLights}">
+                    <fa:ImageAwesome Icon="Solid_Circle" Height="14" Width="14" Foreground="Red"/>
+                    <Button.ToolTip>
+                        <ToolTip Content="Красный"/>
+                    </Button.ToolTip>
+                </Button>
+            </ToolBar>
+            <ToolBar Header="Режимы" Band="1">
+                <Button Content="A" Width="20" FontWeight="Black" Command="{Binding AutomaticCommand}" CommandParameter="{Binding SelectedTrafficLights}">
+                    <Button.ToolTip>
+                        <ToolTip Content="Автоматический режим"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="M" Width="20" FontWeight="Black" Command="{Binding EnabledCommand}" CommandParameter="{Binding SelectedTrafficLights}">
+                    <Button.ToolTip>
+                        <ToolTip Content="Ручной режим"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button Content="X" Width="20" FontWeight="Black" Command="{Binding DisabledCommand}" CommandParameter="{Binding SelectedTrafficLights}">
+                    <Button.ToolTip>
+                        <ToolTip Content="Выключить"/>
+                    </Button.ToolTip>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem DockPanel.Dock="Right">
+                <ResizeGrip/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding SelectedTrafficLights}"/>
+            </StatusBarItem>
+            <Separator HorizontalAlignment="Left"/>
+        </StatusBar>
+        <GroupBox Header="Визуализатор">
+            <ContentControl Content="{Binding Content}"/>
+        </GroupBox>
+    </DockPanel>
+</Window>

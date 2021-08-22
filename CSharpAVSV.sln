@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task_01", "Task_01", "{AD3FA04B-8404-4343-B765-C9A7165E9657}"
+	ProjectSection(SolutionItems) = preProject
+		Task_01.txt = Task_01.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task_02", "Task_02", "{F2397DEC-E92A-4348-9C0E-BB5729ECE4DD}"
+	ProjectSection(SolutionItems) = preProject
+		Task_02.txt = Task_02.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryParserCore", "Task_01\DirectoryParserCore\DirectoryParserCore.csproj", "{1E530E63-E6E4-4E50-A079-7DDE482829EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryParserWpf", "Task_01\DirectoryParserWpf\DirectoryParserWpf.csproj", "{3B5410A2-1C8F-44A6-8565-512A8C9B6FF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLights", "Task_02\TrafficLights\TrafficLights.csproj", "{79E8AF8C-6A1E-4173-88DD-283791E3FD15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLights.lib", "Task_02\TrafficLights.lib\TrafficLights.lib.csproj", "{C8E3DFF1-1563-4BF1-A099-75B60295A6DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E530E63-E6E4-4E50-A079-7DDE482829EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E530E63-E6E4-4E50-A079-7DDE482829EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E530E63-E6E4-4E50-A079-7DDE482829EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E530E63-E6E4-4E50-A079-7DDE482829EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B5410A2-1C8F-44A6-8565-512A8C9B6FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B5410A2-1C8F-44A6-8565-512A8C9B6FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B5410A2-1C8F-44A6-8565-512A8C9B6FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B5410A2-1C8F-44A6-8565-512A8C9B6FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79E8AF8C-6A1E-4173-88DD-283791E3FD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E8AF8C-6A1E-4173-88DD-283791E3FD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E8AF8C-6A1E-4173-88DD-283791E3FD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E8AF8C-6A1E-4173-88DD-283791E3FD15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E3DFF1-1563-4BF1-A099-75B60295A6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E3DFF1-1563-4BF1-A099-75B60295A6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E3DFF1-1563-4BF1-A099-75B60295A6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E3DFF1-1563-4BF1-A099-75B60295A6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E530E63-E6E4-4E50-A079-7DDE482829EA} = {AD3FA04B-8404-4343-B765-C9A7165E9657}
+		{3B5410A2-1C8F-44A6-8565-512A8C9B6FF4} = {AD3FA04B-8404-4343-B765-C9A7165E9657}
+		{79E8AF8C-6A1E-4173-88DD-283791E3FD15} = {F2397DEC-E92A-4348-9C0E-BB5729ECE4DD}
+		{C8E3DFF1-1563-4BF1-A099-75B60295A6DE} = {F2397DEC-E92A-4348-9C0E-BB5729ECE4DD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1E3D19D-3F49-4732-96B3-2E06FC6340F1}
+	EndGlobalSection
+EndGlobal
